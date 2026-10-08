@@ -1,0 +1,10 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="utf-8"><title>Export Filme</title><style>table{border-collapse:collapse;width:100%;}th,td{border:1px solid #000;padding:6px;text-align:left;}th{background-color:#f2f2f2;}</style></head>
+<body><h2>Lista Filme</h2>
+<table>
+<tr><th>ID</th><th>Titlu</th><th>An</th><th>Durata</th><th>Gen</th><th>Categorie</th></tr>
+<tr><td>1</td><td>Cats</td><td>2021</td><td>123 min</td><td>COMEDY</td><td>SHORT_FILM</td></tr>
+<tr><td>2</td><td>Barbie</td><td>2023</td><td>120 min</td><td>DRAMA</td><td>FEATURE_FILM</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+  <movie>
+    <id>1</id>
+    <name>Cats</name>
+    <releaseYear>2021</releaseYear>
+    <duration>123</duration>
+    <genre>COMEDY</genre>
+    <category>SHORT_FILM</category>
+  </movie>
+  <movie>
+    <id>2</id>
+    <name>Barbie</name>
+    <releaseYear>2023</releaseYear>
+    <duration>120</duration>
+    <genre>DRAMA</genre>
+    <category>FEATURE_FILM</category>
+  </movie>
+</movies>

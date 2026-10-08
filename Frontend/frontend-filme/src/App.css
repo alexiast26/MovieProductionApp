@@ -1,0 +1,27 @@
+:root {
+  --color-light: #f3f4f4; 
+  --color-rose: #853953;  
+  --color-plum: #612d53;  
+  --color-dark: #2c2c2c;  
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn-primary { background-color: var(--color-plum); color: var(--color-light); }
+.btn-primary:hover { background-color: var(--color-rose); }
+.btn-secondary { background-color: var(--color-rose); color: var(--color-light); }

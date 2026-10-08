@@ -1,0 +1,84 @@
+services:
+  # 1. Baza de Date
+  mysql-server:
+    image: mysql:8.0
+    container_name: cinematics-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # 2. API Gateway (Punctul de intrare pentru React)
+  api-gateway:
+    build: ./api_gateway 
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-service
+      - movie-service
+      - staff-service
+      - notification-service
+      - report-service
+
+  # 3. User Service
+  user-service:
+    build: ./users_service 
+    container_name: users-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+  # 4. Movie Service
+  movie-service:
+    build: ./movie_service
+    container_name: movie-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+  # 5. Staff Service
+  staff-service:
+    build: ./staff_service
+    container_name: staff-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+  # 6. Notification Service
+  notification-service:
+    build: ./notification_service
+    container_name: notification-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+  # 7. Report Service
+  report-service:
+    build: ./report_service
+    container_name: report-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+
+# Volum persistent pentru a nu pierde datele din MySQL
+volumes:
+  db_data:
